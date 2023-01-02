@@ -1,0 +1,182 @@
+#include "monty.h"
+
+/**
+ * _add - function that adds the top two elements
+ * @head: pointer to head of stack
+ * @counter: line counter;
+ *
+ * Return: nothing
+ */
+void _add(stack_t **head, unsigned int counter)
+{
+	stack_t *h;
+	int length = 0; temp;
+
+	h = *head;
+
+	while (h)
+	{
+		h = h->next;
+		length++;
+	}
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	h = *head;
+	temp = (h->n) + h->next->n;
+	h->next->n = temp;
+	*head = h->next;
+	free(h);
+}
+}
+
+/**
+ * _sub - function that substracts nodes
+ * @head: double head pointer to the stack
+ * @counter: line count
+ *
+ * Return: nothing
+ */
+void _sub(stack_t **head, unsigned int counter)
+{
+	stack_t *h;
+	int length, temp;
+
+	h = *head;
+	for (length = 0; h != NULL; length++)
+		h = h->next;
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	h = *head;
+	sub = h->next->n - h->n;
+	h->next->n = sub;
+	*head = h->next;
+	free(h);
+}
+
+/**
+ * _mul - function that multiplies the top two elements of the stack
+ * @head: double head pointer to the stack
+ * @counter: line count
+ *
+ * Return: nothing
+ */
+void _mul(stack_t **head, unsigned int counter)
+{
+	stack_t *h;
+	int length = 0, temp;
+
+	h = *head;
+	while (h)
+	{
+		h = h->next;
+		length++;
+	}
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	h = *head;
+	temp = h->next->n * h->n;
+	h->next->n = temp;
+	*head = h->next;
+	free(h);
+}
+
+/**
+ * _div - function that divides the top two elements of the stack
+ * @head: double head pointer to the stack
+ * @counter: line count
+ *
+ * Return: nothing
+ */
+void _div(stack_t **head, unsigned int counter)
+{
+	stack_t *h;
+	int length = 0, temp;
+
+	h = *head;
+	while (h)
+	{
+		h = h->next;
+		length++;
+	}
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	h = *head;
+	if (h->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	temp = h->next->n / h->n;
+	h->next->n = temp;
+	*head = h->next;
+	free(h);
+}
+
+/**
+ * _mod - function that computes the remainder of the division of the second
+ * top element of the stack by the top element of the stack
+ * @head: double head pointer to the stack
+ * @counter: line count
+ *
+ * Return: nothing
+ */
+void _mod(stack_t **head, unsigned int counter)
+{
+	stack_t *h;
+	int length = 0, temp;
+
+	h = *head;
+	while (h)
+	{
+		h = h->next;
+		length++;
+	}
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	h = *head;
+	if (h->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	temp = h->next->n % h->n;
+	h->next->n = temp;
+	*head = h->next;
+	free(h);
+}
