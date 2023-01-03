@@ -79,6 +79,9 @@ void _pstr(stack_t **head, unsigned int counter);
 void _pchar(stack_t **head, unsigned int counter);
 void _rotl(stack_t **head, unsigned int counter);
 void _rotr(stack_t **head, unsigned int counter);
+char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
+ssize_t getstdin(char **lineptr, int file);
+char  *clean_line(char *content);
 
 
 #endif
