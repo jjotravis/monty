@@ -10,7 +10,7 @@
 void _add(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
-	int length = 0; temp;
+	int length = 0, temp;
 
 	h = *head;
 
@@ -28,11 +28,10 @@ void _add(stack_t **head, unsigned int counter)
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
-	temp = (h->n) + h->next->n;
+	temp = h->n + h->next->n;
 	h->next->n = temp;
 	*head = h->next;
 	free(h);
-}
 }
 
 /**
@@ -59,8 +58,8 @@ void _sub(stack_t **head, unsigned int counter)
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
-	sub = h->next->n - h->n;
-	h->next->n = sub;
+	temp = h->next->n - h->n;
+	h->next->n = temp;
 	*head = h->next;
 	free(h);
 }

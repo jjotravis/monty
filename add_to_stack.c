@@ -27,4 +27,16 @@ void addnode(stack_t **head, int n)
 	*head = new_node;
 }
 
-
+/**
+ * _stack - switch to stack
+ * @head: double pointer to head of stack
+ * @counter: line counter
+ *
+ * Return: nothing
+ */
+void _stack(stack_t **head, unsigned int counter)
+{
+	(void)head;
+	(void)counter;
+	bus.lifi = 0;
+}

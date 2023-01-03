@@ -27,13 +27,13 @@ int main(int argc, char *argv[])
 
 	if (!file)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1])
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 	}
 	while (readline > 0)
 	{
 		content = NULL;
 		readline = getline(&content, &size, file);
-		bus.content = cotent;
+		bus.content = content;
 		counter++;
 		if (readline > 0)
 			execute(content, &stack, counter, file);

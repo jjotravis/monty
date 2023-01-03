@@ -11,7 +11,7 @@
  */
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
-	instruction_t ops[] = {
+	instruction_t opst[] = {
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
@@ -35,7 +35,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	unsigned int i = 0;
 	char *op;
 
-	op = strtok(content, "\n\t");
+	op = strtok(content, " \n\t");
 	if (op && op[0] == '#')
 		return (0);
 	bus.arg = strtok(NULL, "\n\t");

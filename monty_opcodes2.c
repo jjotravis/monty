@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
  * _push - functions that adds a node to a stack or queue
@@ -13,10 +13,10 @@ void _push(stack_t **head, unsigned int counter)
 
 	if (bus.arg)
 	{
-		if (bus.arg[0] !== '-')
+		if (bus.arg[0] != '-')
 			m++;
 
-		for(; bus.arg[m] != NULL; m++)
+		for(; bus.arg[m] != '\0'; m++)
 		{
 			if (bus.arg[m] > 57 || bus.arg[m] < 48)
 				flag = 1;
@@ -32,7 +32,7 @@ void _push(stack_t **head, unsigned int counter)
 	}
 	else
 	{
-		fprinrf(stderr, "L%d: usage: push integer\n", counter);
+		fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -43,4 +43,28 @@ void _push(stack_t **head, unsigned int counter)
 		addnode(head, i);
 	else
 		addqueue(head, i);
+}
+
+/**
+ * _pop - function that removes top element
+ * @head: double pointer to head of stack
+ * @counter: line  counter
+ *
+ * Return: Nothing
+ */
+void _pop(stack_t **head, unsigned int counter)
+{
+	stack_t *h;
+
+	if (head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	h = *head;
+	*head = h->next;
+	free(h);
 }

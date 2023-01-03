@@ -9,8 +9,8 @@
  */
 void _queue(stack_t **head, unsigned int counter)
 {
-	void(head);
-	void(counter);
+	(void)head;
+	(void)counter;
 	bus.lifi = 1;
 }
 
@@ -23,14 +23,14 @@ void _queue(stack_t **head, unsigned int counter)
  */
 void addqueue(stack_t **head, int n)
 {
-	stack_t *new_node, temp;
+	stack_t *new_node, *temp;
 
 	temp = *head;
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		printf("Error\n");
 	new_node->n = n;
-	new-node->next = NULL;
+	new_node->next = NULL;
 
 	if (temp == NULL)
 	{
