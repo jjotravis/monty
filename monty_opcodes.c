@@ -12,6 +12,8 @@ void _add(stack_t **head, unsigned int counter)
 	stack_t *h;
 	int length = 0, temp;
 
+	(void)counter;
+
 	h = *head;
 
 	while (h)
@@ -46,6 +48,8 @@ void _sub(stack_t **head, unsigned int counter)
 	stack_t *h;
 	int length, temp;
 
+	(void)counter;
+
 	h = *head;
 	for (length = 0; h != NULL; length++)
 		h = h->next;
@@ -75,6 +79,8 @@ void _mul(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
 	int length = 0, temp;
+
+	(void)counter;
 
 	h = *head;
 	while (h)
@@ -108,6 +114,8 @@ void _div(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
 	int length = 0, temp;
+
+	(void)counter;
 
 	h = *head;
 	while (h)
@@ -150,6 +158,8 @@ void _mod(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
 	int length = 0, temp;
+
+	(void)counter;
 
 	h = *head;
 	while (h)
