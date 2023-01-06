@@ -12,6 +12,8 @@ void _swap(stack_t **head, unsigned int counter)
 	stack_t *h;
 	int length = 0, temp;
 
+	(void)counter;
+
 	h = *head;
 	while (h)
 	{
