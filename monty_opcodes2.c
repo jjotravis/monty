@@ -13,12 +13,10 @@ void _push(stack_t **head, unsigned int counter)
 
 	if (bus.arg)
 	{
-		if (bus.arg[0] != '-')
-			m++;
 
 		for(; bus.arg[m] != '\0'; m++)
 		{
-			if (bus.arg[m] > 57 || bus.arg[m] < 48)
+			if (!isdigit(bus.arg[m]) && bus.arg[m] != '-')
 				flag = 1;
 		}
 		if (flag == 1)
