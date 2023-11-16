@@ -2,6 +2,9 @@
 #define MAIN_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
 /*Header files to be included*/
 
 /**
@@ -34,10 +37,17 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);/*Define function*/
 } instruction_t;
 
-
+/**
+ * struct globals - Global variables to be used in code
+ * @file: pointer to monty file
+ * @line_content: line content extracted from monty file
+ * @arg: arguement in each line
+*/
 typedef struct globals
 {
         FILE *file;
-        
+        char *arg;
+        char *line_content;
 } global_t;
+
 #endif
